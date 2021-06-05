@@ -1,0 +1,52 @@
+
+//arduino uno/nano SCL: A5 SDA: A4
+
+#include <Wire.h>
+#include <SoftwareSerial.h>
+#include <MPU6050_light.h>
+
+SoftwareSerial mySerial(2,3);  // rx,tx i think, pin configuration set for reciever 
+MPU6050 mpu(Wire);
+byte PWM_Input = 128;
+pinMode(3,OUTPUT); 
+
+String z = ""; 
+
+void setup(){
+
+  
+  Serial.begin(9600);
+  mySerial.begin(9600); // set baud rate , i use two serial to separate the 
+                        // reciever and transmitter
+
+  //Serial.println("TRANSMITTER");
+  //mySerial.println("RECIEVER"); 
+  
+                        
+  Wire.begin();
+  byte status = mpu.begin();
+  //Serial.print(F("MPU6050 status: "));
+  //Serial.println(status);
+  while(status!=0){ } // stop everything if could not connect to MPU6050
+
+  
+  //Serial.println(F("Calculating offsets, do not move MPU6050"));
+  delay(1000);
+  mpu.calcOffsets(true,true); // gyro and accelero
+  //Serial.println("Done!\n");  
+}
+
+void loop(){
+  mpu.update();
+  //Serial.print("X: ");
+  //Serial.println(mpu.getAngleX());
+  //Serial.print("Y: ");
+  //Serial.println(mpu.getAngleY());
+  //Serial.print("Z: " );
+  Serial.println(mpu.getAngleZ());
+
+  z = mpu.getAngleZ(); 
+  analogWrite(3,PWN_Input);
+  mySerial.println(z); 
+  
+  }
