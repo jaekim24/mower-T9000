@@ -3,6 +3,8 @@
 
 # CURRENTLY WORKING ON 
 - Getting the two nanos to talk to each other to use the z coordnates to keep the mower straight 
+- how to use the xyz coords to move the mower with the sabertooth
+    - how to make the MPU6050 dictate where the mower goes 
 
 # FUTURE MODS
 - make a web server to see the mower move in real time
