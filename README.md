@@ -1,5 +1,5 @@
 # MOWER-T9000
-A sub species of the Terminators, mower T9000, which it will mow your lawn for you 
+- A sub species of the Terminators, mower T9000, which it will mow your lawn for you 
 
 # CURRENTLY WORKING ON 
 - Getting the two nanos to talk to each other to use the z coordnates to keep the mower straight 
