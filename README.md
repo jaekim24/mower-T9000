@@ -1,7 +1,7 @@
 # MOWER-T9000
 - A sub species of the Terminators, mower T9000, which it will mow your lawn for you 
 
-#CURRENT ISSUE
+# CURRENT ISSUE
 - the motor esc uses nano 1's TX
 - MPU6050 uses nano 2's A4,A5,GND,and 5V 
 
