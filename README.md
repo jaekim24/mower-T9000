@@ -1,6 +1,10 @@
 # MOWER-T9000
 - A sub species of the Terminators, mower T9000, which it will mow your lawn for you 
 
+#CURRENT ISSUE
+- the motor esc uses nano 1's TX
+- MPU6050 uses nano 2's A4,A5,GND,and 5V 
+
 # CURRENTLY WORKING ON 
 - Getting the two nanos to talk to each other to use the z coordnates to keep the mower straight 
 - how to use the xyz coords to move the mower with the sabertooth
