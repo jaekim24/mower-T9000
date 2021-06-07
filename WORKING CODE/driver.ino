@@ -20,7 +20,8 @@ MPU6050 mpu(Wire);
 boolean flag = true;
 boolean trip = true;
 boolean out = true; 
-long start; 
+long starttime; 
+long endtime; 
  
 
 void setup(){
@@ -35,21 +36,21 @@ void setup(){
 }
 
 void stop(){
-Serial.println("stopping");
-while(flag == true){
-m1 = 192;
-Serial.write(m1);
-m1=64;
-Serial.write(m1);
+  Serial.println("stopping");
+  while(flag == true){
+  m1 = 192;
+  Serial.write(m1);
+  m1=64;
+  Serial.write(m1);
 }
 }
 
-void dothisfor10seconds(){
+/*void dothisfor10seconds(){
   start = millis();
   while(millis()-start<100){
-    break; 
+  break; 
   }
-}
+}*/
 
 void straight (){
   if (mpu.getAngleZ() >2){
@@ -75,18 +76,20 @@ void straight (){
     mpu.update();
 }
 
-void loop(){
-   float z = mpu.getAngleZ();
-   start = millis();
-   //while( millis - start < 1000){
+
+void test_going_straight(){
    mpu.update();
    m1 = 87;
    Serial.write(m1);
    m1 = 213;
    Serial.write(m1);
-   delay(100);
-   Serial.println(z);
+   Serial.println(mpu.getAngleZ());
    straight();
-  
+}
+
+
+void loop(){
+  test_going_straight();
    }
+
 
