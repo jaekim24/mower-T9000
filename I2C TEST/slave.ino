@@ -13,7 +13,6 @@ void setup(){
   Wire.begin(SLAVE_ADDR);
   Wire.onReceive(receiveEvent);
   Serial.begin(115200);
-
 }
 
 void receiveEvent(){
