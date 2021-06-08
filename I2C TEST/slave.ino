@@ -1,14 +1,21 @@
 #include <Wire.h>
-#include <MPU6050_light.h>
+#define SLAVE_ADDR 9
 
 void setup(){
-    Wire.begin(8); // join i2c bus with address #8
-    Serial.begin(9600); // starts the serial for output
+  Wire.begin(SLAVE_ADDR);
+  Wire.onReceive(receiveEvent);
+  Serial.begin(115200);
+
+}
+
+void receiveEvent(){
+  while(0<Wire.available()){
+    byte x = Wire.read(); 
+    Serial.println(x); 
+  }
 }
 
 void loop(){
-    mpu.update();
-    char z = Wire.read();
-    Serial.print(z);
-
+  delay(0);
+  
 }
