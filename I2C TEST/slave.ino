@@ -6,8 +6,6 @@
 -slave non tx side GND connect to 
  master tx side GND
 -A4 and A5 connects to each other for master and slave 
-
-
 */
 
 
