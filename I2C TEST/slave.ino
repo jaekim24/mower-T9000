@@ -1,6 +1,8 @@
 #include <Wire.h>
 #define SLAVE_ADDR 9
 
+//this is a slave
+
 void setup(){
   Wire.begin(SLAVE_ADDR);
   Wire.onReceive(receiveEvent);
