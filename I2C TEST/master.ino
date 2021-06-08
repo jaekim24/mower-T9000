@@ -1,4 +1,3 @@
-
 #include <Wire.h>
 #include <MPU6050_light.h>
 #define SLAVE_ADDR 9 
@@ -6,14 +5,15 @@
 MPU6050 mpu(Wire);
 
 //this is the master
+
 void setup(){
   Wire.begin();
   Serial.begin(115200);
   mpu.begin();
   mpu.calcOffsets();
   Serial.println("setting up MPU6050");
-  
 }
+
 void loop(){
   delay(40);
   mpu.update();
