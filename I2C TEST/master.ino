@@ -1,17 +1,26 @@
+
 #include <Wire.h>
+#include <MPU6050_light.h>
 #define SLAVE_ADDR 9 
 
+MPU6050 mpu(Wire);
+
+//this is the master
 void setup(){
   Wire.begin();
   Serial.begin(115200);
-  Serial.println("i2c master demo");
+  mpu.begin();
+  mpu.calcOffsets();
+  Serial.println("setting up MPU6050");
   
 }
 void loop(){
   delay(40);
+  mpu.update();
+  float z = mpu.getAngleZ() ; 
   Serial.println("writing to slave");
   Wire.beginTransmission(SLAVE_ADDR);
-  Wire.write(0);
+  Wire.write(int(z));
   Wire.endTransmission();
   Serial.println("message sent"); 
 }
