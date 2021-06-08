@@ -49,3 +49,13 @@ void go_straight(){
   }
 }
 
+
+void stop(){
+  Serial.println("stopping");
+  
+  while(flag == true){
+  ST.motor(1,0);
+  ST.motor(2,0);
+}
+}
+
