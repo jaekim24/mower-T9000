@@ -44,8 +44,8 @@ void go_straight(){
     Serial.println("---->");
   }
   else{
-    ST.motor(1,10);
-    ST.motor(2,10);
+    ST.motor(1,46);
+    ST.motor(2,40);
   }
 }
 
