@@ -1,95 +1,75 @@
 #include "Wire.h"
 #include <MPU6050_light.h>
 #include <SoftwareSerial.h>
-SoftwareSerial mySerial(2,3);
+#include <SabertoothSimplified.h>
+SoftwareSerial SWSerial(NOT_A_PIN, 13); // RX on no pin (unused), TX on pin 11 (to S1).
+SabertoothSimplified ST(SWSerial); // Use SWSerial as the serial port.
 
-//jae 
-//motor one: 64 stop
-//           64 -> 127 foward
-//           65 -> 96 -> 127
-//           64 -> 1 reverse
-//motor two: 192 stop
-//           192 -> 255 foward
-//           193 -> 224 -> 255
-//           192 -> 128 reverse
-
-
-byte m1;
-int count = 0;
 MPU6050 mpu(Wire);
-boolean flag = true;
-boolean trip = true;
-boolean out = true; 
-long starttime; 
-long endtime; 
- 
+boolean flag = true; 
+int motor1_speed = 56;
+int motor2_speed = 50; 
+long starttime = millis();
+long endtime = starttime;
 
-void setup(){
-  Serial.begin(9600);
-  mySerial.begin(9600);
+void setup()
+{
+  SWSerial.begin(9600);
   Wire.begin();
   byte status = mpu.begin();
-  //Serial.println(F("Calculating offsets, do not move MPU6050"));
-  //delay(1000);
-  mpu.calcOffsets();
-  //Serial.println("Done!\n");
+  mpu.calcOffsets(); // calibrates the sensors
 }
 
-void stop(){
-  Serial.println("stopping");
-  while(flag == true){
-  m1 = 192;
-  Serial.write(m1);
-  m1=64;
-  Serial.write(m1);
-}
-}
 
-/*void dothisfor10seconds(){
-  start = millis();
-  while(millis()-start<100){
-  break; 
+void loop()
+{  
+  while ((endtime - starttime)<= 15000){
+  ST.motor(1,56); //+6 bc motor2 is faster than motor1
+  ST.motor(2,50); 
+  go_straight();
+  endtime = millis(); 
   }
-}*/
+  stop();
+}
 
-void straight (){
-  if (mpu.getAngleZ() >2){
-      while(mpu.getAngleZ()>2){
+
+void go_straight (){
+
+  int left_edge = 3;
+  int right_edge = -3;
+  
+  if (mpu.getAngleZ() >left_edge){
+      while(mpu.getAngleZ()>left_edge){
         Serial.println("-------->");
-        m1=100;//increases speed of left motor
-        Serial.write(m1);
+        ST.motor(1,motor1_speed+8) ;//increases speed of left motor
         mpu.update();
         }
       }
-      m1= 90; // back to straight 
-  
-    mpu.update();
-  if (mpu.getAngleZ()<-2){
-      while(mpu.getAngleZ()<-2){
+  mpu.update();
+  if (mpu.getAngleZ()<right_edge){
+      while(mpu.getAngleZ()<right_edge){
         Serial.println("<--------");
-        m1 = 228; //increases speed of right motor
-        Serial.write(m1);
+        ST.motor(2,motor2_speed+8); //increases speed of right motor
         mpu.update();        
         }
+        
       }
-      m1 = 218;// back to straight 
-    mpu.update();
+  mpu.update();
+
+  if (mpu.getAngleZ() < left_edge && mpu.getAngleZ() < right_edge){
+    Serial.println("going straight now");
+    ST.motor(1, 56);
+    ST.motor(2,50);
+  }
 }
 
 
-void test_going_straight(){
-   mpu.update();
-   m1 = 87;
-   Serial.write(m1);
-   m1 = 213;
-   Serial.write(m1);
-   Serial.println(mpu.getAngleZ());
-   straight();
+
+void stop(){
+  Serial.println("stopping");
+  
+  while(flag == true){
+  ST.motor(1,0);
+  ST.motor(2,0);
 }
-
-
-void loop(){
-  test_going_straight();
-   }
-
-
+}
