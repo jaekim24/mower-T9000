@@ -2,7 +2,7 @@
 #include <MPU6050_light.h>
 #include <SoftwareSerial.h>
 #include <SabertoothSimplified.h>
-SoftwareSerial SWSerial(NOT_A_PIN, 13); // RX on no pin (unused), TX on pin 11 (to S1).
+SoftwareSerial SWSerial(NOT_A_PIN, 12); // RX on no pin (unused), TX on pin 11 (to S1).
 SabertoothSimplified ST(SWSerial); // Use SWSerial as the serial port.
 
 MPU6050 mpu(Wire);
