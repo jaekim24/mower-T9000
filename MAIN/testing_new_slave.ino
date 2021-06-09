@@ -35,11 +35,10 @@ void loop(){
 }
 
 void driver(){
+  ST.motor(1,motor1_speed);
+  ST.motor(2,motor2_speed);
   while(millis()<= 10000){
-      ST.motor(1,motor1_speed);
-      ST.motor(2,motor2_speed);
       go_straight();
-      
       //Serial.println("repeating");  for debugging
   }
   stop();
@@ -51,13 +50,13 @@ void driver(){
 //if too much to the right then right motor speeds up
 void go_straight(){
   if (x > 4 && x <127 ){
-    ST.motor(1,motor1_speed + 6);
+    ST.motor(1,motor1_speed + 20);
     //ST.motor(1,0);  idea one: one motor stops other goes reverse
     //ST.motor(2,-30);
     Serial.println("---->");
   }
   else if (x <251 && x >128){
-    ST.motor(2,motor2_speed + 6); 
+    ST.motor(2,motor2_speed + 20); 
     //ST.motor(2,0);  idea one: one motor stops other goes reverse
     //ST.motor(1,-30);
    Serial.println("<----");
