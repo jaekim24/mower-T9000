@@ -49,14 +49,14 @@ void driver(){
 //if too much to the left then left motor speeds up
 //if too much to the right then right motor speeds up
 void go_straight(){
-  if (x > 4 && x <127 ){
-    ST.motor(1,motor1_speed + 20);
+  if (x > 3 && x <127 ){
+    ST.motor(1,motor1_speed + 45);
     //ST.motor(1,0);  idea one: one motor stops other goes reverse
     //ST.motor(2,-30);
     Serial.println("---->");
   }
-  else if (x <251 && x >128){
-    ST.motor(2,motor2_speed + 20); 
+  else if (x <252 && x >128){
+    ST.motor(2,motor2_speed + 39); 
     //ST.motor(2,0);  idea one: one motor stops other goes reverse
     //ST.motor(1,-30);
    Serial.println("<----");
