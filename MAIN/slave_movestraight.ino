@@ -6,6 +6,9 @@ SabertoothSimplified ST(SWSerial); // Use SWSerial as the serial port.
 
 #define SLAVE_ADDR 9
 byte x ; 
+int motor1_speed = 46;
+int motor2_speed = 40; 
+boolean flag = true; 
 
 //motor 2 is faster than motor 1; motor1 +6 motor2 +0 == same speed 
 
@@ -35,17 +38,21 @@ void loop(){
 //if too much to the left then left motor speeds up
 //if too much to the right then right motor speeds up
 void go_straight(){
-  if (x > 5 && x <100 ){
-    ST.motor(1,30);
+  if (x > 4 && x <127 ){
+    ST.motor(1,motor1_speed + 6);
+    //ST.motor(1,0);  idea one: one motor stops other goes reverse
+    //ST.motor(2,-30);
     Serial.println("---->");
   }
-  else if (x <250 && x >200){
-    ST.motor(2,30); 
-    Serial.println("---->");
+  else if (x <251 && x >128){
+    ST.motor(2,motor2_speed + 6); 
+    //ST.motor(2,0);  idea one: one motor stops other goes reverse
+    //ST.motor(1,-30);
+   Serial.println("<----");
   }
   else{
-    ST.motor(1,46);
-    ST.motor(2,40);
+    ST.motor(1,motor1_speed);
+    ST.motor(2,motor2_speed);
   }
 }
 
