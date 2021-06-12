@@ -27,7 +27,7 @@ void loop(){
    *        meaning total length of the string, number of bytes after decimal, 
    *        the array to store the results)
    */
-  dtostrf(z,7, 2, outstr)
+  dtostrf(z,7, 2, outstr);
   Wire.write(outstr);
   Serial.println(outstr);
   Wire.endTransmission();
