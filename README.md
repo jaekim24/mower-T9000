@@ -19,5 +19,5 @@
 ![IMG_0062 2](https://user-images.githubusercontent.com/62858192/120876274-d4ff0a00-c57d-11eb-8e36-67dbd5e5b1c8.jpg)
 
 # USEFUL RESOURCES
-- 
+- transfer float over I2C : https://www.hobbytronics.co.uk/arduino-float-vars
 
