@@ -29,7 +29,7 @@ void loop(){
    */
   dtostrf(z,7, 2, outstr);
   Wire.write(outstr);
-  Serial.println(outstr);
+  Serial.println(outstr); 
   Wire.endTransmission();
   //Serial.println("message sent"); 
 }
