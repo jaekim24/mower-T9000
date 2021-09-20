@@ -20,4 +20,5 @@
 
 # USEFUL RESOURCES
 - transfer float over I2C : https://www.hobbytronics.co.uk/arduino-float-vars
-
+- issue with using nano clone with pi zero:(nano uses the /dev/ttyUSB* port, arduino uses /dev/ttyACM*) resources that helped fix it : https://marksbench.com/electronics/getting-clone-3rd-party-arduino-32u4-boards-working-on-the-raspberry-pi-linux/
+- video on excuting .ino with pi https://www.youtube.com/watch?v=qAM2S27FWAI&list=LL&index=3&t=630s
