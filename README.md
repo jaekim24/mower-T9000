@@ -4,10 +4,15 @@
 
 
 # CURRENTLY WORKING ON 
-- Getting the two nanos to talk to each other to use the z coordnates to keep the mower straight 
-    - <1> use TX -> S1, use serial port RX,TX for MPU6050
 - how to use the xyz coords to move the mower with the sabertooth
     - how to make the MPU6050 dictate where the mower goes 
+- [fixed] Getting the two nanos to talk to each other to use the z coordnates to keep the mower straight 
+    - nano to sabertooth2x12 use TX -> S1, use serial port RX,TX for MPU6050
+
+
+# NANO SPECS
+<img width="1048" alt="Screen Shot 2021-09-22 at 9 53 30 AM" src="https://user-images.githubusercontent.com/62858192/134356908-e499c175-b857-4cd0-894d-752f731a3bea.png">
+
 
 # FUTURE MODS
 - make a web server to see the mower move in real time
