@@ -6,6 +6,8 @@
 # CURRENTLY WORKING ON 
 - how to use the xyz coords to move the mower with the sabertooth
     - how to make the MPU6050 dictate where the mower goes 
+- make perfect 90 turns 
+
 - [fixed] Getting the two nanos to talk to each other to use the z coordnates to keep the mower straight 
     - nano to sabertooth2x12 use TX -> S1, use serial port RX,TX for MPU6050
 
