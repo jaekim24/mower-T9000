@@ -15,6 +15,9 @@
 # NANO SPECS
 <img width="1048" alt="Screen Shot 2021-09-22 at 9 53 30 AM" src="https://user-images.githubusercontent.com/62858192/134356908-e499c175-b857-4cd0-894d-752f731a3bea.png">
 
+# PI ZERO W 
+<img width="1048" alt="Screen Shot 2021-09-22 at 11 25 42 AM" src="https://user-images.githubusercontent.com/62858192/134373422-f079a43e-e8b1-4f33-836a-55936f085257.png">
+
 
 # FUTURE MODS
 - make a web server to see the mower move in real time
