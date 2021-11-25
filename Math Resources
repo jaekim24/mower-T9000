@@ -1,2 +1,3 @@
 - PVector: https://processing.org/tutorials/pvector
-- Dot product: used to find theta between two points https://natureofcode.com/book/chapter-6-autonomous-agents/#chapter06_section7
+- Dot product: used to find theta between two points https://natureofcode.com/book/chapter-6-autonomous-agents/#chapter06_section7,
+  https://processing.org/tutorials/pvector#vectors-magnitude
