@@ -34,7 +34,7 @@ static float findingThetaMethod(float x1,float y1,float x2,float y2){
 
 }
 
-float shiftToOrigin(float x1,float y1,float x2,float y2){
+float standardPosition(float x1,float y1,float x2,float y2){
     // need to find third point to be able to shift to origin
     // WORKING ON NOW
     findingTheta a = new findingTheta (x1,y1);
