@@ -38,3 +38,4 @@
 
 # MATH USEFUL RESOURCES
 - distance formula https://courses.lumenlearning.com/waymakercollegealgebra/chapter/distance-in-the-plane/
+-https://www.youtube.com/watch?v=DHPfoqiE4yQ
