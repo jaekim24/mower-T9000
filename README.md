@@ -37,5 +37,6 @@
 
 
 # MATH USEFUL RESOURCES
+-Finding angle between two points  https://www.cuemath.com/geometry/angle-between-vectors/
 - distance formula https://courses.lumenlearning.com/waymakercollegealgebra/chapter/distance-in-the-plane/
 -https://www.youtube.com/watch?v=DHPfoqiE4yQ
